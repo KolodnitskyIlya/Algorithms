@@ -26,8 +26,6 @@ nums contains distinct values sorted in ascending order.
 
 from typing import List
 
-def ok(nums, mid, target):
-    return nums[mid] <= target
 def searchInsert(nums: List[int], target: int) -> int:
     n = len(nums)
     l = 0
@@ -35,14 +33,14 @@ def searchInsert(nums: List[int], target: int) -> int:
     ans = -1
     while l <= r:
         mid = (l + r) // 2
-        if ok(nums, mid, target):
+        if nums[mid] <= target:
             l = mid + 1
             ans = mid
         else:
             r = mid - 1
-    if target > nums[0]:
-        return ans + 1
-    return ans
+    if nums[ans] == target:
+        return ans
+    return ans + 1
 
-print(searchInsert([1,3,5,6], 2))
+print(searchInsert([1,3,5,6], 5))
 
