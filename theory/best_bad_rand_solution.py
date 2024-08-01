@@ -80,7 +80,7 @@ def main():
     for i in range(n):
         arr.append(randint(-5, 5))
 
-    querry = [] # массив хранящий пары эйлера(запросы)
+    querry = [] # массив хранящий пары l,r (запросы)
     for i in range(m):
         l = randint(0, n - 1)
         r = randint(l , n - 1)
