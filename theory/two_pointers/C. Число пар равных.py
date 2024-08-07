@@ -23,13 +23,17 @@ n, m = map(int, input().split())
 a = list(map(int, input().split()))
 b = list(map(int, input().split()))
 
-cnt = 0
-j = 0
+i = 0
+ans = []
 
-for i in range(n):
-    if b[j] == a[i]:
-        
-
-
-
-print(cnt)
+for j in range(m):
+    counter = 0
+    while i < len(a) and a[i] <= b[j]:
+        if a[i] == b[j]:
+            counter += 1
+        i += 1
+    if j > 0 and b[j] == b[j - 1]:
+        ans.append(ans[-1])
+    else:
+        ans.append(counter)
+print(sum(ans))
